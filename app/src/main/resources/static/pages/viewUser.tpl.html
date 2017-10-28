@@ -1,0 +1,64 @@
+<div ng-controller="ViewUserCtrl as viewUser">
+	<div class="data-loading" ng-show="dataLoading">
+ 	</div>
+
+	<div class="panel panel-primary" ng-hide="dataLoading">
+	    <div class="panel-heading">
+	        <h3 class="panel-title">View User</h3>
+	    </div>
+	    <div class="panel-body">
+	        <form class="form-horizontal" role="form" name="personForm">
+	            
+	            <div class="row">					
+					  <div class="col-md-6">
+					
+						<div class="form-group">                
+			                <label for="firstName" class="col-sm-3 control-label">First name</label>		                
+			                <div class="col-sm-9" style="padding-top: 7px">
+			                	{{ user.firstName }}    
+			                </div>
+			            </div>	  
+					  	
+					  	<div class="form-group">
+			                <label for="lastName" class="col-sm-3 control-label">Last name</label>
+			                <div class="col-sm-9" style="padding-top: 7px">
+			                	{{ user.lastName }}    
+			                </div>
+			            </div>
+						
+						<div class="form-group">
+			                <label for="uploadTime" class="col-sm-3 control-label">Uploaded Time</label>
+			                <div class="col-sm-9" style="padding-top: 7px">
+			                	{{ user.userImage.uploadTime | formatDate }}    
+			                </div>
+			            </div>	  
+              
+            <div class="form-group">
+			                <label for="updateTime" class="col-sm-3 control-label">Updated Time</label>
+			                <div class="col-sm-9" style="padding-top: 7px">
+			                	{{ user.userImage.updateTime | formatDate }}    
+			                </div>
+			            </div>	
+						
+						<div class="form-group">
+			                <label for="image" class="col-sm-3 control-label">Image URL</label>
+			                <div class="col-sm-9" style="padding-top: 7px">
+			                	<a href="{{ user.userImage.url }}">{{ user.userImage.url }}
+							    </a>  
+			                </div>		                
+			            </div>	 
+            <div class="form-group">
+			                <label for="description" class="col-sm-3 control-label">Description</label>
+			                <div class="col-sm-9" style="padding-top: 7px">
+			                	{{ user.description }}    
+			                </div>
+			            </div>
+					  
+					  </div>
+					  
+					</div>      
+	        </form>
+	        
+	    </div>
+	</div>
+</div>

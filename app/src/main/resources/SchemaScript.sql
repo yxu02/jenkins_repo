@@ -1,0 +1,22 @@
+DROP SCHEMA IF EXISTS cmpe281_proj1;
+CREATE SCHEMA IF NOT EXISTS cmpe281_proj1 DEFAULT CHARACTER SET utf8;
+USE cmpe281_proj1;
+  
+CREATE TABLE IF NOT EXISTS cmpe281_proj1.app_user_image (
+  id INT NOT NULL AUTO_INCREMENT,
+  s3Key VARCHAR(255) NOT NULL,
+  upload_time DATETIME NOT NULL,
+  update_time DATETIME NOT NULL,
+  url VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (id));  
+  
+CREATE TABLE IF NOT EXISTS cmpe281_proj1.app_user (
+  id INT NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(40) NOT NULL,
+  last_name VARCHAR(40) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  user_image_id INT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT FK_USER_IMAGE_ID
+    FOREIGN KEY (user_image_id)
+    REFERENCES cmpe281_proj1.app_user_image (id));    
